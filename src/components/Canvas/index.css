@@ -1,0 +1,14 @@
+.canvas-body {
+    background: #fff;
+    height: 300vh;
+}
+
+.house-model {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -47%);
+    max-height: 85vh;
+    max-width: 85vw;
+    border-radius: 25px;
+}
