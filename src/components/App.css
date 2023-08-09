@@ -1,0 +1,32 @@
+.main-body {
+  margin: 15px;
+  min-height: calc(100vh - 165px);
+}
+
+.event-box {
+  width: fit-content;
+  padding: 15px;
+  margin: 15px 15px 15px 0;
+  border: 1px solid #000;
+  border-radius: .25rem;
+  background-color: whitesmoke;
+}
+
+.event-box p {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px
+}
+
+main {
+  display: flex;
+  gap: 15px
+}
+
+ul {
+  display: flex;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  list-style: devanagari;
+  flex-direction: column
+}

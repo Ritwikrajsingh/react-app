@@ -1,0 +1,30 @@
+nav {
+    display: flex;
+    gap: 3px;
+    margin: 0 0 3px 3px;
+}
+
+nav li {
+    height: 50px;
+    display: flex;
+    padding: 0 20px;
+    color: black;
+    align-items: center;
+    border-radius: .25rem;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid #a6a7a919;
+}
+
+nav li a {
+    color: black;
+    font-weight: 500;
+}
+
+nav li:hover {
+    box-shadow: inset 0 0 20px -15px black;
+}
+
+* {
+    text-decoration: none;
+}

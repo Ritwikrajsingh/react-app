@@ -1,0 +1,21 @@
+.main {
+    margin: 0% 20%;
+    padding: 0;
+    min-height: calc(100vh - 157px);
+}
+
+.profile-body {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-body img {
+    width: 100%;
+}
+
+.profile-body p {
+    text-indent: 15px;
+    text-align: justify;
+    line-height: 30px;
+}

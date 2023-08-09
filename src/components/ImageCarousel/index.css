@@ -1,0 +1,43 @@
+.app {
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    min-height: calc(100vh - 157px);
+}
+
+.container {
+    max-width: 90vh;
+    max-height: 90vh;
+    min-width: 450px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    height: calc(100% / 1.77);
+    scroll-snap-type: x mandatory;
+    position: relative;
+}
+
+.image {
+    width: 100%;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+#dots {
+    position: absolute;
+    bottom: -20px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50px;
+    background-color: aquamarine;
+}
