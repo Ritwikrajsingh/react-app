@@ -6,8 +6,8 @@ import NotFound from '../404';
 import ImageCarousel from '../ImageCarousel'
 import './index.css'
 import About from '../About';
-
 import Profile from '../About/Profile';
+import Canvas from '../Canvas';
 
 export default function Header() {
     return (
@@ -24,6 +24,9 @@ export default function Header() {
                     </li>
                     <li>
                         <Link to="/image-carousel">Image Carousel</Link>
+                    </li>
+                    <li>
+                        <Link to="/image-parallax">Image Parallax</Link>
                     </li>
                     <li>
                         <Link to="/about">About</Link>
@@ -48,6 +51,12 @@ export default function Header() {
                     element={
                         <ImageCarousel />
                     } />
+                <Route path="/image-parallax"
+                    element={
+                        <div className='canvas-body'>
+                            <Canvas />
+                        </div>
+                    } />
                 <Route path="/about"
                     element={
                         <About />
@@ -65,6 +74,13 @@ export default function Header() {
                     path={`/about/:username`}
                     element={
                         <Profile />
+                    }
+                />
+                <Route
+                    exact
+                    path={`/*`}
+                    element={
+                        <NotFound />
                     }
                 />
 
