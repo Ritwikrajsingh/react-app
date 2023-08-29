@@ -1,0 +1,25 @@
+* {
+    transition: all 1s linear;
+}
+
+.canvas-body {
+    background: #fff;
+    height: 300vh;
+    scroll-behavior: smooth;
+}
+
+.house-model {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -47%);
+    max-height: 85vh;
+    max-width: 85vw;
+    border-radius: 1.6em;
+    transition: transform 0.1ms ease;
+}
+
+.house-model {
+    transition: opacity 0.5s ease;
+    /* Add a smooth opacity transition */
+}

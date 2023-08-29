@@ -1,6 +1,11 @@
+* {
+    transition: all 1s linear;
+}
+
 .canvas-body {
     background: #fff;
-    height: 300vh;
+    height: 100vh;
+    scroll-behavior: smooth;
 }
 
 .house-model {
@@ -11,4 +16,5 @@
     max-height: 85vh;
     max-width: 85vw;
     border-radius: 1.6em;
+    transition: transform 0.1ms ease;
 }
