@@ -1,3 +1,7 @@
+* {
+    transition: all 1s linear;
+}
+
 .canvas-body {
     background: #fff;
     height: 300vh;
@@ -17,4 +21,33 @@
 
 .house-model {
     transition: opacity 0.5s ease;
+    /* Add a smooth opacity transition */
+}
+
+
+
+/* For webkit-based browsers */
+::-webkit-scrollbar {
+    width: 8px;
+    /* Set the width of the scrollbar */
+}
+
+/* Track style */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Track background color */
+}
+
+/* Handle style */
+::-webkit-scrollbar-thumb {
+    background: #282c34;
+    /* Handle color */
+    border-radius: 4px;
+    /* Rounded corners for the handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #61dafb;
+    /* Handle color on hover */
 }

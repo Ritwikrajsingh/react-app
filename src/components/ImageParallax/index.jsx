@@ -65,7 +65,6 @@ const ImageParallax = () => {
         let requestId;
 
         const render = () => {
-            console.log(images[frameIndex].src, frameIndex);
             if (frameIndex < images.length && frameIndex < totalFrames) {
                 context.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height); // Clear the canvas
                 context.drawImage(images[frameIndex], 0, 0);
@@ -78,10 +77,11 @@ const ImageParallax = () => {
         return () => cancelAnimationFrame(requestId);
     }, [frameIndex, images]);
 
+    console.log(images.length);
     return <canvas
         ref={canvasRef}
         className="house-model"
-        loading="eager" />;
+        loading="eager" />
 };
 
 export default ImageParallax;
