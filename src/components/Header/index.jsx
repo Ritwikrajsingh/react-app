@@ -8,6 +8,7 @@ import './index.css'
 import About from '../About';
 import Profile from '../About/Profile';
 import Canvas from '../Canvas';
+import ImageParallax from '../ImageParallax';
 
 export default function Header() {
     return (
@@ -24,6 +25,9 @@ export default function Header() {
                     </li>
                     <li>
                         <Link to="/image-carousel">Image Carousel</Link>
+                    </li>
+                    <li>
+                        <Link to="/canvas">Canvas</Link>
                     </li>
                     <li>
                         <Link to="/image-parallax">Image Parallax</Link>
@@ -51,10 +55,16 @@ export default function Header() {
                     element={
                         <ImageCarousel />
                     } />
-                <Route path="/image-parallax"
+                <Route path="/canvas"
                     element={
                         <div className='canvas-body'>
                             <Canvas />
+                        </div>
+                    } />
+                <Route path="/image-parallax"
+                    element={
+                        <div className='canvas-body'>
+                            <ImageParallax />
                         </div>
                     } />
                 <Route path="/about"

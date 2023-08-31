@@ -94,7 +94,7 @@ const Canvas = () => {
         updateImage(frameIndex);
     }, [frameIndex]);
 
-    return <canvas ref={canvasRef} className="house-model" />;
+    return <canvas ref={canvasRef} className="house-model" loading="eager" />;
 };
 
 export default Canvas;
