@@ -1,39 +1,41 @@
-'use client';
 import React, { useRef, useEffect, useState } from 'react';
 import './index.css'
 
 const ImageParallax = () => {
-    useEffect(() => {
-        (
-            async () => {
-                const LocomotiveScroll = (await import('locomotive-scroll')).default
-                const locomotiveScroll = new LocomotiveScroll();
-            }
-        )()
-    }, [])
 
     const canvasRef = useRef(null);
     const [frameIndex, setFrameIndex] = useState(0);
-
+    const [images, setImages] = useState([])
     const totalFrames = 300;
+
+
     const currentFrame = (index) => (
         `/assets/parallax-images1/male0${index.toString().padStart(3, '0')}.png`
     );
 
+    // Eagerly load images
+    const eagerlyLoad = () => {
+        for (let i = 1; i <= totalFrames; i++) {
+            const img = new Image();
+            img.src = `${currentFrame(i)}`;
+            setImages((prevImages) => [...prevImages, img]);
+        }
+    }
+
+    // Draw and update image on cangas
     const updateImage = (index) => {
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
 
-        context.clearRect(0, 0, canvas.width, canvas.height); // Clear previous content
-        const frame = new Image();
+        canvas.width = 1920;
+        canvas.height = 1080;
 
-        frame.src = currentFrame(index);
-        frame.onload = () => {
-            context.drawImage(frame, 0, 0);
+        images.onload = () => {
+            context.drawImage(images, 0, 0);
         };
     };
 
-
+    // handle scroll logic
     const handleScroll = () => {
         const scrollTop = window.scrollY;
         const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
@@ -41,22 +43,12 @@ const ImageParallax = () => {
         const newFrameIndex = Math.min(totalFrames - 1, Math.floor(scrollNormal * totalFrames));
 
         setFrameIndex(newFrameIndex + 1);
+        console.log(frameIndex);
     };
 
-
     useEffect(() => {
-        const canvas = canvasRef.current;
-        const context = canvas.getContext('2d');
-        const frame = new Image();
-
-        canvas.height = 1080;
-        canvas.width = 1920;
-
-        frame.src = currentFrame(1);
-        frame.onload = () => {
-            context.drawImage(frame, 0, 0);
-        };
-
+        eagerlyLoad()
+        updateImage();
         window.addEventListener('scroll', handleScroll);
 
         return () => {
@@ -65,16 +57,31 @@ const ImageParallax = () => {
     }, []);
 
     useEffect(() => {
-        updateImage(frameIndex);
-    }, [frameIndex]);
+        if (!canvasRef.current || images.length < 1 || frameIndex >= totalFrames) {
+            return;
+        }
+
+        const context = canvasRef.current.getContext('2d');
+        let requestId;
+
+        const render = () => {
+            console.log(images[frameIndex].src, frameIndex);
+            if (frameIndex < images.length && frameIndex < totalFrames) {
+                context.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height); // Clear the canvas
+                context.drawImage(images[frameIndex], 0, 0);
+                requestId = requestAnimationFrame(render);
+            }
+        };
+
+        render();
+
+        return () => cancelAnimationFrame(requestId);
+    }, [frameIndex, images]);
 
     return <canvas
         ref={canvasRef}
         className="house-model"
-        loading="eager"
-        data-scroll
-        data-scroll-speed="1"
-        data-scroll-direction="horizontal" />;
+        loading="eager" />;
 };
 
 export default ImageParallax;
