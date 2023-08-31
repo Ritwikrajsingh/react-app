@@ -18,8 +18,6 @@ export default function ImageCarousel() {
         fetchData()
     }, [])
 
-    console.log(images);
-
     return (
         <div className='app'>
             <div className='container'>
