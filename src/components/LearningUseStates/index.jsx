@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import LearningUseEffect from './LearningUseEffect'
-import DropDown from './DropDown'
+import DropDown from './Accordion'
 
 export default function StateManagement() {
 
@@ -44,6 +44,38 @@ export default function StateManagement() {
             setQuote([data.content, data.author])
         })
     }
+
+    /*================================================================
+        const formData = new FormData()
+        formData.append("name", "Ritwik Raj Singh")
+        formData.append("email", "ritwik@gmail.com")
+        formData.append("phone", 123456)
+        formData.append("facadeOption", "Not Sure")
+        formData.append("zip", 1234)
+        const testConfig = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'http://localhost:13009/api/v2/the-block-contest/register',
+            headers: {
+                'x-api-key': 'PVdgXUMggj8l9w09rTZA42zVXIfPWjvo9hqxlAnk'
+            },
+            data: formData
+        }
+        let data;
+        const test = async () => {
+            await axios.request(testConfig).then((res) => {
+                data = res.data
+                console.log(data)
+            }).catch((err) => {
+                console.log(err.response);
+                if (err.response.status === 400) {
+                    console.log(err.response.data);
+                }
+            })
+        }
+        test()
+        console.log(data);
+    ================================================================*/
 
     return (
         <div className='main-body'>
