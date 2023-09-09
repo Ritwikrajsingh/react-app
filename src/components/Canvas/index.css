@@ -1,5 +1,5 @@
 * {
-    transition: all 1s linear;
+    transition: all 100ms linear;
 }
 
 .canvas-body {
