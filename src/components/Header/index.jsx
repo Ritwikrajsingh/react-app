@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Link, BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import App from '../App';
 import LearningUseStates from '../LearningUseStates';
 import NotFound from '../404';
@@ -9,33 +9,14 @@ import About from '../About';
 import Profile from '../About/Profile';
 import Canvas from '../Canvas';
 import ImageParallax from '../ImageParallax';
+import Navigation from '../Navigation';
 
 export default function Header() {
     return (
         <BrowserRouter>
             <header style={{ margin: "0 0 10px 0" }}>
                 <h1>This is a header component</h1>
-
-                <nav>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/state-management">State Management</Link>
-                    </li>
-                    <li>
-                        <Link to="/image-carousel">Image Carousel</Link>
-                    </li>
-                    <li>
-                        <Link to="/canvas">Canvas</Link>
-                    </li>
-                    <li>
-                        <Link to="/image-parallax">Image Parallax</Link>
-                    </li>
-                    <li>
-                        <Link to="/about">About</Link>
-                    </li>
-                </nav>
+                <Navigation />
             </header>
 
             <Routes>
