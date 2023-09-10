@@ -28,3 +28,8 @@ nav li:hover {
 * {
     text-decoration: none;
 }
+
+.active {
+    background-color: #ffffff00;
+    border-color: #ffffff00;
+}
